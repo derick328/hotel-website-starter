@@ -19,12 +19,16 @@ hotel-website-starter-vercel/
 
 ## 1. Preview on your computer
 
+If you have the outer `Hotel_Website_Starter_Vercel` repository folder, you can run `python3 serve.py` from that outer folder (use `py` on Windows) and open `http://127.0.0.1:8001/`. This launcher automatically locates the website directory and prints the URL to use.
+
 Extract the ZIP. Open a terminal in `hotel-website-starter-vercel` and run:
 
 - Windows (Python installed): `py -m http.server 8000 --directory dist`
 - Ubuntu/Linux: `python3 -m http.server 8000 --directory dist`
 
 Visit `http://localhost:8000`. Stop the server with Ctrl+C. Open the folder in VS Code to edit it. Since this is a static site, there is no `npm install` or `npm run dev` step.
+
+If your terminal is instead in the outer `Hotel_Website_Starter_Vercel` repository folder, run `python3 -m http.server 8000 --directory hotel-website-starter-vercel/dist` (use `py` on Windows). Running `--directory dist` from that outer folder points to a nonexistent directory and returns `404 - File not found`. Open `http://localhost:8000/` without adding `/dist` to the URL.
 
 ## 2. Replace the demo details
 
@@ -58,6 +62,8 @@ The SSH remote requires your GitHub SSH key to be set up. If it is not, use GitH
 To make this reusable, open the repository on GitHub → Settings → General → check **Template repository**. For each hotel, choose **Use this template** → **Create a new repository**, then edit only that hotel's content, images and integration. A GitHub template makes independent copies; later updates to the template will not automatically update the hotel repositories.
 
 ## 4. Deploy on Vercel
+
+These steps assume this folder itself is your Git repository root. If you pushed the outer `Hotel_Website_Starter_Vercel` folder instead, follow the [outer README](../README.md#deploy-on-vercel): keep Vercel's Root Directory at the repository root and use Output Directory `hotel-website-starter-vercel/dist`. Alternatively, select `hotel-website-starter-vercel` as the Vercel Root Directory and keep Output Directory `dist`.
 
 1. In Vercel, select **Add New → Project** and connect GitHub if asked.
 2. Import the repository you just created.
